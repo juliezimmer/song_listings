@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 // produces a static array of songs for the user to choose.
 const songsReducer = () => {
    // this returns an array of objects, with each object representing a different song
@@ -18,3 +20,9 @@ const selectedSongReducer = (selectedSong=null, action) => {
    }
    return selectedSong;
  };
+
+ // by providing export default in front of this function, any other file in the application can now get access the combined set of reducers. 
+export default combineReducers({
+   song: songsReducer,
+   selectedSong: selectedSongReducer
+});
