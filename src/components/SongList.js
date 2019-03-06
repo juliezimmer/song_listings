@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectSong } from '../actions'; 
 
 class SongList extends Component {
    // helper method
@@ -9,7 +10,9 @@ class SongList extends Component {
          return (
             <div className="item" key={song.title}>
                <div className="right floated content">
-                  <button className="ui button primary">
+                  <button 
+                     onClick={() => this.props.selectSong(song)}
+                     className="ui button primary" > 
                      Select
                   </button>
                </div>
@@ -19,14 +22,16 @@ class SongList extends Component {
       });
    }
    render () {
-      console.log(this.props);
       // note that renderList() is called in the JSX
       return <div className="ui divided list">{this.renderList()}</div>;
    }
 }
 
+// this function is called with all of the data in the Redux store. Anytime the Redux state is changed, mapStateTpProps function runs with the newly created state object. 
+// everytime the select button is clicked, this function, mapStateToProps re-runs with a new updated state object.
 const mapStateToProps = state => {
-   return { songs: state.songs };
+   console.log(state);
+   return { songs: state.songs }; 
 }
 
-export default connect(mapStateToProps)(SongList);
+export default connect(mapStateToProps, { selectSong })(SongList);

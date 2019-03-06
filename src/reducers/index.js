@@ -13,9 +13,9 @@ const songsReducer = () => {
 
 // function is called with the currently selected song as its first argument.
 // the second argument is the action object
-const selectedSongReducer = (selectedSong=null, action) => {
+const selectedSongReducer = (selectedSong = null, action) => {
    // if the action object's type is SONG_SELECTED, then its payload property is returned, which is the song name
-   if (action.type === 'SELECTED_SONG') {
+   if (action.type === 'SONG_SELECTED') {
       return action.payload
    }
    return selectedSong;
