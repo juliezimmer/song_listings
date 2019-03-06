@@ -1,10 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const SongDetail = (props) => {
-   console.log(props);
+// props object is destructured before being passed to SngDetail
+const SongDetail = ({ song }) => {
+   if (!song) {
+      return <div>Select a song</div>;
+   }
    return (
-      <div>Song Detail</div>
+      <div>
+         <h3>Details for:</h3>
+            <p>Title: {song.title}</p>
+            <p>Duration: {song.duration}</p>
+      </div>
    );
 };
 
