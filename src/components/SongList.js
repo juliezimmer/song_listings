@@ -31,7 +31,7 @@ class SongList extends Component {
 // everytime the select button is clicked, this function, mapStateToProps re-runs with a new updated state object.
 const mapStateToProps = state => {
    console.log(state);
-   return { songs: state.songs }; 
+   return { songs: state.songs };   
 }
 
 export default connect(mapStateToProps, { selectSong })(SongList);
