@@ -23,6 +23,6 @@ const selectedSongReducer = (selectedSong=null, action) => {
 
  // by providing export default in front of this function, any other file in the application can now get access the combined set of reducers. 
 export default combineReducers({
-   song: songsReducer,
+   songs: songsReducer,
    selectedSong: selectedSongReducer
 });
